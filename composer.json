@@ -1,0 +1,19 @@
+{
+  "name": "clark/factory",
+  "type": "library",
+  "require": {
+    "phpunit/phpunit": "^8.4"
+  },
+  "autoload": {
+    "psr-4": {
+      "Clark\\": "src/",
+      "Clark\\Tests\\": "tests/"
+    }
+  },
+  "authors": [
+    {
+      "name": "Clark Mitchell",
+      "email": "github@clarkmitchell.dev"
+    }
+  ]
+}
