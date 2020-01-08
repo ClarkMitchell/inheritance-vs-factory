@@ -22,4 +22,22 @@ final class CodableTest extends TestCase
         $this->assertEquals($expectedBob, $bob);
         $this->assertEquals('Bob', $bob->name);
     }
+
+    public function testCollectionCanBeCreated()
+    {
+        $expectedBob = new User();
+        $expectedBob->id = 1;
+        $expectedBob->name = "Bob";
+
+        $expectedAlice = new User();
+        $expectedAlice->id = 2;
+        $expectedAlice->name = 'Alice';
+
+        $users = (new Codable(User::class))->getAll(["Bob", "Alice"]);
+
+        $this->assertEquals($expectedBob, $users[0]);
+        $this->assertEquals($expectedAlice, $users[1]);
+        $this->assertEquals('Bob', $users[0]->name);
+    }
+
 }

@@ -25,13 +25,31 @@ class Codable
         return $object;
     }
 
+    public function getAll($names)
+    {
+        return array_map(function($name) {
+            return $this->get($name);
+        }, $names);
+    }
+
     private function callRemote($name)
     {
-        return json_encode(
-            [
-                'name' => 'Bob',
-                'id' => 1
-            ]
-        );
+        if ($name ==='Bob') {
+            return json_encode(
+                [
+                    'name' => 'Bob',
+                    'id' => 1
+                ]
+            );
+        }
+
+        if ($name ==='Alice') {
+            return json_encode(
+                [
+                    'name' => 'Alice',
+                    'id' => 2
+                ]
+            );
+        }
     }
 }
